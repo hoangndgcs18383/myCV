@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyen Duc Hoang | Senior Unity Developer Portfolio</title>
+    <!-- Tailwind CSS cho Layout nhanh và đẹp -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome cho Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="selection:bg-blue-500/30">
+
+    <!-- Message Box -->
+    <div id="msg-box">Thông báo: Vui lòng cập nhật link WebGL!</div>
+
+    <!-- WebGL Game Modal -->
+    <div id="game-modal" onclick="closeGame()">
+        <div class="modal-container" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-center p-4 bg-slate-900 border-b border-slate-800">
+                <h3 id="modal-title" class="font-bold text-blue-400 uppercase tracking-wider">Unity WebGL Demo</h3>
+                <button onclick="closeGame()" class="text-slate-400 hover:text-red-500 transition text-2xl">
+                    <i class="fas fa-times-circle"></i>
+                </button>
+            </div>
+            <div class="aspect-ratio-16-9 bg-black">
+                <div id="loading-spinner" class="absolute inset-0 flex items-center justify-center">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+                </div>
+                <iframe id="game-frame" src="" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="p-3 bg-slate-900 text-center text-xs text-slate-500">
+                Sử dụng chuột và bàn phím để tương tác. Nhấn ESC để đóng.
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-card px-6 py-4 top-0">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-black tracking-tighter gradient-text uppercase">Hoangnd.Dev</a>
+            <div class="hidden md:flex space-x-10 text-sm font-bold uppercase tracking-widest">
+                <a href="#about" class="hover:text-blue-400 transition">Giới thiệu</a>
+                <a href="#experience" class="hover:text-blue-400 transition">Kinh nghiệm</a>
+                <a href="#projects" class="hover:text-blue-400 transition">Dự án</a>
+                <a href="#skills" class="hover:text-blue-400 transition">Kỹ năng</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="mailto:hoangndgcs18383@gmail.com" class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-full text-xs font-bold transition">LIÊN HỆ</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden px-6">
+        <div class="absolute w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] -top-40 -left-40"></div>
+        <div class="absolute w-[500px] h-[500px] bg-teal-500/10 rounded-full blur-[120px] bottom-0 -right-20"></div>
+        
+        <div class="max-w-5xl mx-auto text-center z-10">
+            <h1 class="text-6xl md:text-9xl font-black mb-8 leading-none tracking-tighter uppercase">
+                Nguyen Duc <br> <span class="gradient-text">Hoang</span>
+            </h1>
+            <p class="text-slate-400 text-xl md:text-3xl mb-12 max-w-3xl mx-auto leading-relaxed font-light">
+                Senior Unity Developer chuyên sâu về <span class="text-white font-bold">Mobile Game</span> & <span class="text-white font-bold">Optimization</span>.
+            </p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="#projects" class="px-10 py-4 bg-white text-black font-bold rounded-xl transition hover:bg-blue-500 hover:text-white shadow-xl">
+                    XEM DEMO GAME
+                </a>
+                <div class="flex items-center space-x-4 px-6 text-slate-400">
+                    <a href="tel:+84965280940" class="hover:text-white transition"><i class="fas fa-phone-alt"></i></a>
+                    <a href="mailto:hoangndgcs18383@gmail.com" class="hover:text-white transition"><i class="fas fa-envelope"></i></a>
+                    <a href="#" class="hover:text-white transition"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-32 px-6 bg-slate-900/30">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-black uppercase italic section-title">Về tôi</h2>
+                    <p class="text-slate-400 text-lg leading-relaxed mb-6">
+                        Tôi là một nhà phát triển game mobile linh hoạt với kinh nghiệm dày dặn qua các thể loại: Puzzle, MMO, Arcade và Social Simulation. 
+                    </p>
+                    <p class="text-slate-400 text-lg leading-relaxed mb-8">
+                        Thành thạo trong thiết kế gameplay, tích hợp UI/UX, dịch vụ bên thứ ba (Ads, Firebase, Notifications) và tối ưu hóa hiệu suất 2D/3D. Đam mê tạo ra những trải nghiệm mượt mà, hấp dẫn và tập trung vào người chơi.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="glass-card p-4 rounded-xl">
+                            <div class="text-blue-400 font-bold">Học vấn</div>
+                            <div class="text-sm font-semibold text-white">FPT Greenwich</div>
+                        </div>
+                        <div class="glass-card p-4 rounded-xl">
+                            <div class="text-blue-400 font-bold">Vị trí</div>
+                            <div class="text-sm font-semibold text-white">Senior Unity Dev</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="glass-card p-8 rounded-2xl text-center border-t-4 border-blue-500">
+                        <div class="text-4xl font-black mb-2">3.5+</div>
+                        <div class="text-xs uppercase tracking-widest text-slate-500">Năm kinh nghiệm</div>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl text-center border-t-4 border-teal-500">
+                        <div class="text-4xl font-black mb-2">15+</div>
+                        <div class="text-xs uppercase tracking-widest text-slate-500">Dự án hoàn thành</div>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl text-center border-t-4 border-purple-500">
+                        <div class="text-4xl font-black mb-2">SDK</div>
+                        <div class="text-xs uppercase tracking-widest text-slate-500">Custom System</div>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl text-center border-t-4 border-pink-500">
+                        <div class="text-4xl font-black mb-2">Good</div>
+                        <div class="text-xs uppercase tracking-widest text-slate-500">Academic Level</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-32 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-black uppercase italic section-title text-center block mx-auto w-fit">Kinh nghiệm làm việc</h2>
+            
+            <div class="space-y-16">
+                <!-- PlayAds -->
+                <div class="relative pl-12 border-l-2 border-blue-500">
+                    <div class="absolute w-6 h-6 bg-blue-500 rounded-full -left-[13px] top-0 border-4 border-slate-900"></div>
+                    <div class="flex flex-col md:flex-row justify-between mb-4">
+                        <div>
+                            <h3 class="text-2xl font-black text-white">PLAYADS</h3>
+                            <p class="text-blue-400 font-bold italic">Senior Unity Developer</p>
+                        </div>
+                        <div class="text-slate-500 font-bold">09/2024 - 11/2025</div>
+                    </div>
+                    <ul class="text-slate-400 space-y-3 list-disc ml-4">
+                        <li>Phát triển đa dạng tính năng UI, gameplay cho game Hyper-Casual và Slot.</li>
+                        <li>Xây dựng hệ thống **Custom SDK** tích hợp đồng bộ cho iOS và Android.</li>
+                        <li>Tích hợp hệ thống API và IAP (In-App Purchase).</li>
+                        <li>Quản lý team iOS, chịu trách nhiệm build và phát hành lên **TestFlight** và **AppStore**.</li>
+                    </ul>
+                </div>
+
+                <!-- Sofun -->
+                <div class="relative pl-12 border-l-2 border-teal-500">
+                    <div class="absolute w-6 h-6 bg-teal-500 rounded-full -left-[13px] top-0 border-4 border-slate-900"></div>
+                    <div class="flex flex-col md:flex-row justify-between mb-4">
+                        <div>
+                            <h3 class="text-2xl font-black text-white">SOFUN</h3>
+                            <p class="text-teal-400 font-bold italic">Unity Developer</p>
+                        </div>
+                        <div class="text-slate-500 font-bold">04/2024 - 09/2024</div>
+                    </div>
+                    <ul class="text-slate-400 space-y-3 list-disc ml-4">
+                        <li>Phát triển các tính năng UI và hệ thống gameplay cho dòng game **Turn-Based 2D**.</li>
+                        <li>Tích hợp và tối ưu hóa hệ thống API xử lý dữ liệu người dùng.</li>
+                    </ul>
+                </div>
+
+                <!-- Topebox -->
+                <div class="relative pl-12 border-l-2 border-purple-500">
+                    <div class="absolute w-6 h-6 bg-purple-500 rounded-full -left-[13px] top-0 border-4 border-slate-900"></div>
+                    <div class="flex flex-col md:flex-row justify-between mb-4">
+                        <div>
+                            <h3 class="text-2xl font-black text-white">TOPEBOX</h3>
+                            <p class="text-purple-400 font-bold italic">Unity Developer</p>
+                        </div>
+                        <div class="text-slate-500 font-bold">08/2022 - 03/2024</div>
+                    </div>
+                    <ul class="text-slate-400 space-y-3 list-disc ml-4">
+                        <li>Phát triển tính năng và triển khai các thành phần UI tương ứng.</li>
+                        <li>Xây dựng và duy trì tính năng **In-app Chat** và **Story system** (giống Facebook Stories).</li>
+                        <li>Tối ưu hóa hiệu suất **3D Rendering** trong môi trường Map rộng lớn.</li>
+                        <li>Tích hợp hệ thống API và đóng góp vào các hoạt động của CoCo System.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section id="projects" class="py-32 px-6 bg-slate-900/20">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-black uppercase italic section-title text-center block mx-auto w-fit mb-20">Danh mục dự án</h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 1. Goods Store -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-slate-800 flex items-center justify-center relative">
+                        <i class="fas fa-boxes-stacked text-5xl text-blue-500/20"></i>
+                        <span class="absolute top-4 right-4 bg-blue-600 text-[10px] font-bold px-2 py-1 rounded">MATCH-3</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Goods Store: Sort Master</h3>
+                        <p class="text-slate-400 text-xs mb-4 line-clamp-3">Game Match-3 tốc độ cao. Triển khai core mechanics, hệ thống timed challenge và combo logic.</p>
+                        <button onclick="playGame('Sort Master', 'YOUR_LINK_HERE')" class="w-full py-2 bg-white text-black font-bold rounded-lg text-sm hover:bg-blue-600 hover:text-white transition">PLAY DEMO</button>
+                    </div>
+                </div>
+
+                <!-- 2. Block Jam -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-slate-800 flex items-center justify-center relative">
+                        <i class="fas fa-puzzle-piece text-5xl text-teal-500/20"></i>
+                        <span class="absolute top-4 right-4 bg-teal-600 text-[10px] font-bold px-2 py-1 rounded">PUZZLE</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Block Jam: Bunny Dash</h3>
+                        <p class="text-slate-400 text-xs mb-4 line-clamp-3">Cơ chế block-sliding, obstacle behaviors và UI/UX flow mượt mà cho game puzzle.</p>
+                        <button onclick="playGame('Block Jam', 'YOUR_LINK_HERE')" class="w-full py-2 border border-slate-700 font-bold rounded-lg text-sm hover:border-teal-500 transition">PLAY DEMO</button>
+                    </div>
+                </div>
+
+                <!-- 3. Swingo! -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-slate-800 flex items-center justify-center relative">
+                        <i class="fas fa-link text-5xl text-green-500/20"></i>
+                        <span class="absolute top-4 right-4 bg-green-600 text-[10px] font-bold px-2 py-1 rounded">PHYSICS</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Swingo!</h3>
+                        <p class="text-slate-400 text-xs mb-4 line-clamp-3">Game phiêu lưu vật lý với cơ chế đu dây rừng rậm. Tối ưu movement và tương tác môi trường.</p>
+                        <button onclick="playGame('Swingo!', 'YOUR_LINK_HERE')" class="w-full py-2 border border-slate-700 font-bold rounded-lg text-sm hover:border-green-500 transition">PLAY DEMO</button>
+                    </div>
+                </div>
+
+                <!-- 4. Collect Pills -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-slate-800 flex items-center justify-center relative">
+                        <i class="fas fa-capsules text-5xl text-red-500/20"></i>
+                        <span class="absolute top-4 right-4 bg-red-600 text-[10px] font-bold px-2 py-1 rounded">ARCADE</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Collect Pills</h3>
+                        <p class="text-slate-400 text-xs mb-4 line-clamp-3">Game color-matching nhịp độ nhanh. Xây dựng hệ thống nối chuỗi (chain build) và scoring.</p>
+                        <button onclick="playGame('Collect Pills', 'YOUR_LINK_HERE')" class="w-full py-2 border border-slate-700 font-bold rounded-lg text-sm hover:border-red-500 transition">PLAY DEMO</button>
+                    </div>
+                </div>
+
+                <!-- 5. Zoo Clash.IO -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-slate-800 flex items-center justify-center relative">
+                        <i class="fas fa-paw text-5xl text-orange-500/20"></i>
+                        <span class="absolute top-4 right-4 bg-orange-600 text-[10px] font-bold px-2 py-1 rounded">IO / SURVIVAL</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Zoo Clash.IO</h3>
+                        <p class="text-slate-400 text-xs mb-4 line-clamp-3">Game sinh tồn .io với hệ thống tiến hóa (tier-based evolution) và arena trực tuyến.</p>
+                        <button onclick="playGame('Zoo Clash.IO', 'YOUR_LINK_HERE')" class="w-full py-2 border border-slate-700 font-bold rounded-lg text-sm hover:border-orange-500 transition">PLAY DEMO</button>
+                    </div>
+                </div>
+
+                <!-- 6. Jackpot Riches -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-slate-800 flex items-center justify-center relative">
+                        <i class="fas fa-coins text-5xl text-yellow-500/20"></i>
+                        <span class="absolute top-4 right-4 bg-yellow-600 text-[10px] font-bold px-2 py-1 rounded">SLOTS</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Jackpot Riches</h3>
+                        <p class="text-slate-400 text-xs mb-4 line-clamp-3">Casino Slots với hệ thống phần thưởng lớn. Xử lý WebSocket cho các sự kiện thời gian thực.</p>
+                        <button onclick="playGame('Jackpot Riches', 'YOUR_LINK_HERE')" class="w-full py-2 border border-slate-700 font-bold rounded-lg text-sm hover:border-yellow-500 transition">PLAY DEMO</button>
+                    </div>
+                </div>
+
+                <!-- 7. Mimiland -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-slate-800 flex items-center justify-center relative">
+                        <i class="fas fa-vr-cardboard text-5xl text-purple-500/20"></i>
+                        <span class="absolute top-4 right-4 bg-purple-600 text-[10px] font-bold px-2 py-1 rounded">MMORPG</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Mimiland (Metaverse)</h3>
+                        <p class="text-slate-400 text-xs mb-4 line-clamp-3">MMORPG khổng lồ tích hợp social community và hệ thống customize danh tính nhân vật.</p>
+                        <button onclick="playGame('Mimiland', 'YOUR_LINK_HERE')" class="w-full py-2 border border-slate-700 font-bold rounded-lg text-sm hover:border-purple-500 transition">PLAY DEMO</button>
+                    </div>
+                </div>
+
+                <!-- 8. Animal Marching -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-slate-800 flex items-center justify-center relative">
+                        <i class="fas fa-dog text-5xl text-blue-400/20"></i>
+                        <span class="absolute top-4 right-4 bg-blue-400 text-[10px] font-bold px-2 py-1 rounded">PERSONAL</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Animal Marching</h3>
+                        <p class="text-slate-400 text-xs mb-4 line-clamp-3">Dự án cá nhân Full-stack. Phát triển logic Unity và tích hợp Unity Cloud Services.</p>
+                        <button onclick="playGame('Animal Marching', 'YOUR_LINK_HERE')" class="w-full py-2 border border-slate-700 font-bold rounded-lg text-sm hover:border-blue-400 transition">PLAY DEMO</button>
+                    </div>
+                </div>
+
+                <!-- 9. Freaky Ball -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-slate-800 flex items-center justify-center relative">
+                        <i class="fas fa-circle-dot text-5xl text-gray-500/20"></i>
+                        <span class="absolute top-4 right-4 bg-gray-600 text-[10px] font-bold px-2 py-1 rounded">ANDROID</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Freaky Ball</h3>
+                        <p class="text-slate-400 text-xs mb-4 line-clamp-3">Dự án Android cá nhân. Tích hợp trọn bộ AdMob, IronSource và Firebase.</p>
+                        <button onclick="playGame('Freaky Ball', 'YOUR_LINK_HERE')" class="w-full py-2 border border-slate-700 font-bold rounded-lg text-sm hover:border-gray-500 transition">PLAY DEMO</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-32 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-black uppercase italic section-title text-center block mx-auto w-fit mb-20">Kỹ năng kỹ thuật</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-2xl">
+                    <h4 class="text-xl font-bold mb-6 text-blue-400"><i class="fab fa-unity mr-2"></i> Game Engine</h4>
+                    <ul class="space-y-4 text-slate-300 font-medium">
+                        <li class="flex justify-between"><span>Unity 2D/3D</span> <span class="text-white">Expert</span></li>
+                        <li class="flex justify-between"><span>C# (MonoBehaviour)</span> <span class="text-white">Senior</span></li>
+                        <li class="flex justify-between"><span>Addressables</span> <span class="text-white">Proficient</span></li>
+                        <li class="flex justify-between"><span>3D Optimization</span> <span class="text-white">Senior</span></li>
+                    </ul>
+                </div>
+                <div class="glass-card p-8 rounded-2xl">
+                    <h4 class="text-xl font-bold mb-6 text-teal-400"><i class="fas fa-code mr-2"></i> Web & Backend</h4>
+                    <ul class="space-y-4 text-slate-300 font-medium">
+                        <li class="flex justify-between"><span>ReactJS/Native</span> <span class="text-white">Mid</span></li>
+                        <li class="flex justify-between"><span>NodeJS (Express)</span> <span class="text-white">Mid</span></li>
+                        <li class="flex justify-between"><span>MySQL / MongoDB</span> <span class="text-white">Strong</span></li>
+                        <li class="flex justify-between"><span>WebSocket / REST</span> <span class="text-white">Senior</span></li>
+                    </ul>
+                </div>
+                <div class="glass-card p-8 rounded-2xl">
+                    <h4 class="text-xl font-bold mb-6 text-purple-400"><i class="fas fa-tools mr-2"></i> Services & SDK</h4>
+                    <ul class="space-y-4 text-slate-300 font-medium">
+                        <li class="flex justify-between"><span>Firebase / Unity Cloud</span> <span class="text-white">Senior</span></li>
+                        <li class="flex justify-between"><span>AdMob / IronSource</span> <span class="text-white">Expert</span></li>
+                        <li class="flex justify-between"><span>IAP / SDK Coding</span> <span class="text-white">Senior</span></li>
+                        <li class="flex justify-between"><span>TestFlight / AppStore</span> <span class="text-white">Strong</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 px-6 bg-black border-t border-slate-900">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+            <div class="text-center md:text-left">
+                <h2 class="text-3xl font-black gradient-text uppercase mb-4">Nguyen Duc Hoang</h2>
+                <p class="text-slate-500">TP. Thu Duc, Viet Nam</p>
+                <p class="text-slate-500">hoangndgcs18383@gmail.com</p>
+                <p class="text-slate-500">+84 965280940</p>
+            </div>
+            <div class="flex flex-col items-center md:items-end">
+                <div class="flex space-x-6 mb-8 text-2xl text-slate-600">
+                    <a href="#" class="hover:text-blue-500 transition"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-white transition"><i class="fab fa-github"></i></a>
+                    <a href="mailto:hoangndgcs18383@gmail.com" class="hover:text-teal-500 transition"><i class="fas fa-envelope"></i></a>
+                </div>
+                <p class="text-slate-800 text-xs italic font-bold">© 2026 Designed for Senior Unity Developer Portfolio</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
